@@ -1,0 +1,39 @@
+[build-system]
+requires = ["hatchling >= 1.26", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[project]
+name = "lechapolib"
+dynamic = ["version"]
+authors = [
+  { name="Linaki.0rg", email="linaki@linaki.org" },
+]
+description = "A tiny python layer of abstraction for the TKinter library"
+readme = "README.md"
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "GPL-3.0-only"
+license-files = ["LICENSE"]
+
+dependencies=[]
+
+[project.urls]
+Homepage = "https://github.com/linaki-org/lechapo-lib"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "src/lechapolib"
+]
+exclude = [
+  "*.json",
+  "pkg/_compat.py",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/lechapolib"]
+
+[tool.hatch.version]
+source = "vcs"
